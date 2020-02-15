@@ -1,15 +1,16 @@
 ## tota11y webpack react typescript example
 a modern example of how to introdude accessibility (a11y) tools into a react application for testing and compliance standards.
 
----
+this repo is a POC on how to use tota11y, a more applicable solution would be to have seperate environment flags or `webpack.config` files based on needs. Such as development, QA, staging, or a11y.
 
+
+---
 Table of contents:
 * [problem](#problem)
 * [why](#why)
 * [running the example](#running-the-example)
 * [solution](#solution)
 * [future](#future)
-
 ---
 
 ### [problem](#problem)
@@ -49,7 +50,6 @@ npm start
 
 ### [solution](#solution)
 #### ([tell me what to do cause I don't know how](https://www.youtube.com/watch?v=kBSdNy7oI4g#t=3m55s))
-
 **prerequisites**
 
 This example assumes you are using at least `[webpack](https://github.com/webpack/webpack) v4`.
@@ -103,7 +103,6 @@ Now when we start our server and build our assets the following script tag is ad
 ---
 
 ### [future](#future)
-
 may include future examples of how to inject [tota11y](https://github.com/Khan/tota11y) into other bundlers like [parcel](https://github.com/parcel-bundler/parcel) or [browserify](https://github.com/browserify/browserify). will be linked to in the future between repos READMEs.
 
 may include an example of how to use with [create-react-app](https://github.com/facebook/create-react-app).
