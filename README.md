@@ -43,23 +43,65 @@ npm start
 
 ![tota11y-usage-in-our-example-react-app](docs/assets/tota11y-in-action.gif)
 
+---
 
 ### [solution](#solution)
 #### ([tell me what to do cause I don't know how](https://www.youtube.com/watch?v=kBSdNy7oI4g#t=3m55s))
 
-** prerequisites **
-This example assumes you have the following installed in your directory at least `[webpack](https://github.com/webpack/webpack) v4`.
+**prerequisites**
+
+This example assumes you are using at least `[webpack](https://github.com/webpack/webpack) v4`.
 
 At the time of this tutorial, this project is currently using `[webpack](https://github.com/webpack/webpack) v4.41.5`.
 
-In order to inject [tota11y](https://github.com/Khan/tota11y) into our build we need to install two webpack plugins:
+** usage **
+
+In order to inject [tota11y](https://github.com/Khan/tota11y) into our build we need to install the following webpack plugins:
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
 * [add-asset-html-webpack-plugin](https://github.com/SimenB/add-asset-html-webpack-plugin)
 
-In the directory of your project this can be done with the
+In our `webpack.config.js` the order of our plugins matter, `add-asset-html-webpack-plugin` needs to be listed after the `html-webpack-plugin` as such:
+```js
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const path = require('path');
+
+module.exports = [
+  {
+// skipping to the plugin section
+    plugins: [
+      new CleanWebpackPlugin(),
+      new ManifestPlugin({ fileName: '../manifest.json' }),
+      // AddAssetHtmlPlugin needs to follow the HtmlWebpackPlugin in order to properly inject scripts
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, 'public/index.html'),
+        filename: '../index.html'
+      }),
+      new AddAssetHtmlPlugin({
+        filepath: require.resolve('./node_modules/@khanacademy/tota11y/dist/tota11y.min.js')
+      }),
+    ],
+    stats: 'minimal',
+  },
+];
+```
+
+Now when we start our server and build our assets the following script tag is added to our `public/index.html` file:
+```html
+<!-- ignoring head tags -->
+<body>
+  <!-- showing how script tags are generated -->
+  <script type="text/javascript" src="/dist/client/tota11y.min.js"></script>
+  <script type="text/javascript" src="/dist/client/main.js"></script>
+</body>
+```
 
 ---
 
 ### [future](#future)
 
-may include future examples of how to inject [tota11y](https://github.com/Khan/tota11y) into other bundlers like [parcel](https://github.com/parcel-bundler/parcel) or [browserify](https://github.com/browserify/browserify). will be linked to in the future between repos.
+may include future examples of how to inject [tota11y](https://github.com/Khan/tota11y) into other bundlers like [parcel](https://github.com/parcel-bundler/parcel) or [browserify](https://github.com/browserify/browserify). will be linked to in the future between repos READMEs.
+
+may include an example of how to use with [create-react-app](https://github.com/facebook/create-react-app).
