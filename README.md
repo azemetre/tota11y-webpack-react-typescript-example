@@ -6,7 +6,7 @@ a modern example of how to introdude accessibility (a11y) tools into a react app
 Table of contents:
 * [problem](#problem)
 * [why](#why)
-* [running the example](#example)
+* [running the example](#running-the-example)
 * [solution](#solution)
 * [future](#future)
 
@@ -17,7 +17,7 @@ A11y is often a requirement for many web applications and services. Teams with m
 
 When deploying new builds of your product on different environments (development, qa, staging, production), engineers may neglect ways to increase the productivity of non-engineering workers.
 
-This may cause issues when trying to ensure that your product is a11y compliant.
+This may cause issues when trying to ensure that your product is a11y compliant in a timely and efficient manner.
 
 ---
 
@@ -26,9 +26,11 @@ Tooling for a11y has gotten increasingly better over the last 5 years. Libraries
 
 [tota11y](https://github.com/Khan/tota11y) is a tool that we can inject into our app, as part of our build process, to give manual testers additional capabilities with verifying or triaging a11y issues.
 
+**Note:** while tota11y does help find common issues, this is not a gurantee that you will cover all the needs of your build for your users. You will still need to test your interface with [real assistive technologies that your users use](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies#when-to-test), also see [WebAIM's survey findings](https://webaim.org/projects/screenreadersurvey7/#primary). You will also need to include people with disabilities in your user research groups.
+
 ---
 
-### [running the example](#example)
+### [running the example](#running-the-example)
 Clone the repo, once finish cloning run the following command to install the project dependencies:
 ```
 npm i
