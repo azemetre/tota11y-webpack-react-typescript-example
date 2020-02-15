@@ -56,7 +56,7 @@ This example assumes you are using at least `[webpack](https://github.com/webpac
 
 At the time of this tutorial, this project is currently using `[webpack](https://github.com/webpack/webpack) v4.41.5`.
 
-** usage **
+**usage**
 
 In order to inject [tota11y](https://github.com/Khan/tota11y) into our build we need to install the following webpack plugins:
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
