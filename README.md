@@ -52,9 +52,9 @@ npm start
 #### ([tell me what to do cause I don't know how](https://www.youtube.com/watch?v=kBSdNy7oI4g#t=3m55s))
 **prerequisites**
 
-This example assumes you are using at least `[webpack](https://github.com/webpack/webpack) v4`.
+This example assumes you are using at least [webpack](https://github.com/webpack/webpack) v4.
 
-At the time of this tutorial, this project is currently using `[webpack](https://github.com/webpack/webpack) v4.41.5`.
+At the time of this tutorial, this project is currently using [webpack](https://github.com/webpack/webpack) v4.41.5.
 
 **usage**
 
